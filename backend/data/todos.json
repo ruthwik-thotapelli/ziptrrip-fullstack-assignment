@@ -1,0 +1,42 @@
+[
+  {
+    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "title": "Set up the project repository",
+    "description": "Initialize the Git repository, create frontend and backend folders, and configure the development environment.",
+    "completed": true,
+    "createdAt": "2025-01-01T08:00:00.000Z",
+    "updatedAt": "2025-01-01T09:00:00.000Z"
+  },
+  {
+    "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "title": "Design the REST API endpoints",
+    "description": "Plan and document all CRUD endpoints for the /todos resource following RESTful conventions.",
+    "completed": true,
+    "createdAt": "2025-01-02T08:00:00.000Z",
+    "updatedAt": "2025-01-02T10:00:00.000Z"
+  },
+  {
+    "id": "c3d4e5f6-a7b8-9012-cdef-123456789012",
+    "title": "Implement Express backend",
+    "description": "Build the Node.js server with Express, configure CORS, add route handlers, and wire up JSON file persistence.",
+    "completed": true,
+    "createdAt": "2025-01-03T08:00:00.000Z",
+    "updatedAt": "2025-01-03T12:00:00.000Z"
+  },
+  {
+    "id": "d4e5f6a7-b8c9-0123-defa-234567890123",
+    "title": "Build React frontend",
+    "description": "Create the multi-page React application with React Router, including the Todo List page and Todo Detail page.",
+    "completed": false,
+    "createdAt": "2025-01-04T08:00:00.000Z",
+    "updatedAt": "2025-01-04T08:00:00.000Z"
+  },
+  {
+    "id": "e5f6a7b8-c9d0-1234-efab-345678901234",
+    "title": "Write comprehensive README",
+    "description": "Document the project overview, features, folder structure, installation steps, API endpoints, and assumptions.",
+    "completed": false,
+    "createdAt": "2025-01-05T08:00:00.000Z",
+    "updatedAt": "2025-01-05T08:00:00.000Z"
+  }
+]
