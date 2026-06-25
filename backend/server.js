@@ -36,20 +36,20 @@ app.use((req, _res, next) => {
 
 // ─── Routes ───────────────────────────────────────────────────────────────────
 
-// Mount all /todos routes
-app.use('/todos', todoRoutes);
+// Mount all /api/todos routes to prevent collision with frontend /todos UI
+app.use('/api/todos', todoRoutes);
 
 // Health-check root endpoint
-app.get('/', (_req, res) => {
+app.get('/api', (_req, res) => {
   res.json({
     message: 'Todo API is running 🚀',
     version: '1.0.0',
     endpoints: {
-      'GET /todos': 'Retrieve all todos',
-      'GET /todos/:id': 'Retrieve a single todo by ID',
-      'POST /todos': 'Create a new todo',
-      'PUT /todos/:id': 'Update a todo by ID',
-      'DELETE /todos/:id': 'Delete a todo by ID',
+      'GET /api/todos': 'Retrieve all todos',
+      'GET /api/todos/:id': 'Retrieve a single todo by ID',
+      'POST /api/todos': 'Create a new todo',
+      'PUT /api/todos/:id': 'Update a todo by ID',
+      'DELETE /api/todos/:id': 'Delete a todo by ID',
     },
   });
 });

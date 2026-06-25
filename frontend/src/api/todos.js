@@ -8,8 +8,8 @@ import axios from 'axios';
 
 // Base URL: uses relative path in production (Vercel), or proxy/env var in development
 const BASE_URL = import.meta.env.PROD 
-  ? '' 
-  : (import.meta.env.VITE_API_URL || 'http://localhost:5000');
+  ? '/api' 
+  : (import.meta.env.VITE_API_URL || 'http://localhost:5000/api');
 
 const api = axios.create({
   baseURL: `${BASE_URL}/todos`,
