@@ -72,8 +72,14 @@ app.use((err, _req, res, _next) => {
   });
 });
 
-// ─── Start Server ─────────────────────────────────────────────────────────────
+// ─── Start Server / Export ───────────────────────────────────────────────────
 
-app.listen(PORT, () => {
-  console.log(`✅  Todo API server listening on http://localhost:${PORT}`);
-});
+// Only listen if we are not running in a Vercel Serverless environment
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`✅  Todo API server listening on http://localhost:${PORT}`);
+  });
+}
+
+// Export for Vercel Serverless Function
+module.exports = app;

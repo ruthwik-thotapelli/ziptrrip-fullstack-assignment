@@ -12,7 +12,10 @@ const path = require('path');
 const router = express.Router();
 
 // Absolute path to the JSON data file
-const DATA_FILE = path.join(__dirname, '..', 'data', 'todos.json');
+// Vercel serverless functions have a read-only filesystem except for /tmp
+const DATA_FILE = process.env.VERCEL
+  ? path.join('/tmp', 'todos.json')
+  : path.join(__dirname, '..', 'data', 'todos.json');
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -22,6 +25,13 @@ const DATA_FILE = path.join(__dirname, '..', 'data', 'todos.json');
  */
 function readTodos() {
   try {
+    // If running on Vercel and the temp file doesn't exist yet, copy the seed data
+    if (process.env.VERCEL && !fs.existsSync(DATA_FILE)) {
+      const seedFile = path.join(__dirname, '..', 'data', 'todos.json');
+      if (fs.existsSync(seedFile)) {
+        fs.copyFileSync(seedFile, DATA_FILE);
+      }
+    }
     const raw = fs.readFileSync(DATA_FILE, 'utf-8');
     return JSON.parse(raw);
   } catch (err) {
